@@ -1,11 +1,21 @@
-import { TableContainer, TextareaAutosize } from '@mui/material'
+import { TableContainer, TextareaAutosize, TextField } from '@mui/material'
 import Paper from '@mui/material/Paper';
 import React from 'react'
 import { useEventsContext } from '../../context/EventsContext';
 import './Action.css'
 
 const Action = () => {
-    const {newNumber, rows} = useEventsContext()
+    const {newNumber, comment, setComment, rows} = useEventsContext()
+    
+  const handleChange = (event) => {
+    setComment(event.target.value);
+  };
+
+    // function maxLengthCheck(object) {
+    //     if (object.value.length > object.maxLength)
+    //     object.value = object.value.slice(0, object.maxLength)
+    //   }
+
   return (
     <div>
         <TableContainer 
@@ -18,12 +28,13 @@ const Action = () => {
         </TableContainer>
         <div>
             <label>Resolution Detail*</label>    
-            <TextareaAutosize
-                aria-label="minimum height"
-                minRows={3}
-                placeholder="Minimum 3 rows"
-                style={{ width: "99%", height:100 }}
-            />
+            
+            <TextField
+        id="outlined-name"
+        label="Resolution Detail*"
+        value={comment}
+        onChange={handleChange}
+      />
         </div>
     </div>
   )

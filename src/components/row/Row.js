@@ -48,7 +48,7 @@ export default function Row({event}) {
             <TableCell >{event.type}</TableCell>
             <TableCell >{event.id}</TableCell>
             <TableCell >{}</TableCell>
-            <TableCell >{}</TableCell>
+            <TableCell >{event.actions[1].title}</TableCell>
           </TableRow>
       </TableBody>
      </Table>

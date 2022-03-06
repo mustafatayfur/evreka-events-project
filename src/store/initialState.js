@@ -3,9 +3,9 @@ let example_response = {
     timezone: 'Europe/Istanbul',
     action_descriptions: {
       '0': '-',
-      '1': 'Bu olayı çözüldü olarak bildir ve çözümü not et.',
-      '2': 'Bu olay için plansız bir görev oluştur.',
-      '3': 'Bu varlığı son görülen konumuna taşı.',
+      '1': 'Bu olayı çözüldü olarak bildir ve çözümü not et.',//Mark as resolved
+      '2': 'Bu olay için plansız bir görev oluştur.', //Create unscheduled task
+      '3': 'Bu varlığı son görülen konumuna taşı.', // change location
     },
     success: true,
     type_detail: {
@@ -29,7 +29,7 @@ let example_response = {
         '1': 'Kritik Seviye',
         '2': 'Dolu Konteyner',
         '3': 'Yer Değişimi',
-        '4': 'Alan Dışı Toplama',
+        '4': 'Alan Dışı Toplama', //off-site collection 
         '5': 'Toplanma',
       },
       performance: {
@@ -1715,4 +1715,6 @@ let example_response = {
     type: 'incident',
   }
   export default example_response
+
+  console.log(example_response.action_descriptions[0])
   

@@ -11,6 +11,7 @@ import { Stack, Tab, Tabs } from "@mui/material";
 import "./Modal.css";
 import Options from "../options/Options";
 import Action from "../action/Action";
+import { useEventsContext } from "../../context/EventsContext";
 
 
 const steps = ["TAKE ACTION", "SELECT ACTION"];
@@ -18,11 +19,11 @@ const steps = ["TAKE ACTION", "SELECT ACTION"];
 export default function Modals() {
   const [open, setOpen] = React.useState(false);
   const [activeStep, setActiveStep] = React.useState(0);
+  const {newNumber, comment, setComment, newEvent} = useEventsContext()
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  
   // const [skipped, setSkipped] = React.useState(new Set());
 
   // const isStepOptional = (step) => {
@@ -35,10 +36,10 @@ export default function Modals() {
 
   const handleNext = () => {
     // let newSkipped = skipped;
-    // if (isStepSkipped(activeStep)) {
-    //   newSkipped = new Set(newSkipped.values());
-    //   newSkipped.delete(activeStep);
-    // }
+    if (activeStep === steps.length - 1) {
+      newEvent.actions[1].comment = comment
+      console.log(newEvent.actions[1].comment)      
+    }
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     // setSkipped(newSkipped);
