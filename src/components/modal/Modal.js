@@ -33,7 +33,7 @@ export default function Modals() {
       console.log(newEvent.actions[1].comment)     
     }
     setIsLoading(true)
-    setTimeout(() => { setIsLoading(false) }, 1000);
+    setTimeout(() => { setIsLoading(false) }, 1500);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
