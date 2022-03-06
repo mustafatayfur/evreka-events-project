@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import { Stack, Tab, Tabs } from "@mui/material";
+import { CircularProgress, Stack, Tab, Tabs } from "@mui/material";
 import "./Modal.css";
 import Options from "../options/Options";
 import Action from "../action/Action";
@@ -19,30 +19,20 @@ const steps = ["TAKE ACTION", "SELECT ACTION"];
 export default function Modals() {
   const [open, setOpen] = React.useState(false);
   const [activeStep, setActiveStep] = React.useState(0);
+  const [isLoading, setIsLoading] = React.useState(false)
   const {newNumber, comment, setComment, newEvent} = useEventsContext()
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // const [skipped, setSkipped] = React.useState(new Set());
-
-  // const isStepOptional = (step) => {
-  //   return step === 1;
-  // };
-
-  // const isStepSkipped = (step) => {
-  //   return skipped.has(step);
-  // };
-
   const handleNext = () => {
-    // let newSkipped = skipped;
     if (activeStep === steps.length - 1) {
       newEvent.actions[1].comment = comment
-      console.log(newEvent.actions[1].comment)      
+      console.log(newEvent.actions[1].comment)     
     }
-
+    setIsLoading(true)
+    setTimeout(() => { setIsLoading(false) }, 1000);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    // setSkipped(newSkipped);
   };
 
   const handleBack = () => {
@@ -90,14 +80,18 @@ export default function Modals() {
         aria-describedby='keep-mounted-modal-description'>
 
         <Box sx={{ width: "50%" }} className='box-modal'>
-          <Stepper activeStep={activeStep}>
+          
+          {activeStep === steps.length ? (
+            <React.Fragment>
+              {isLoading && <CircularProgress color="success" />}
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+            <Stepper activeStep={activeStep} className="stepper">
             {steps.map((label, index) => {
               const stepProps = {};
               const labelProps = {};
-
-              // if (isStepSkipped(index)) {
-              //   stepProps.completed = false;
-              // }
+              
               return (
                 <Step key={index} {...stepProps}>
                   <StepLabel {...labelProps}>{label}</StepLabel>
@@ -105,18 +99,6 @@ export default function Modals() {
               );
             })}
           </Stepper>
-          {activeStep === steps.length ? (
-            <React.Fragment>
-              <Typography sx={{ mt: 2, mb: 1 }}>
-                All steps completed - you&apos;re finished
-              </Typography>
-              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                <Box sx={{ flex: "1 1 auto" }} />
-                {/** <Button onClick={()=>handleReset()}>Reset</Button>*/} 
-              </Box>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
               <Typography sx={{ mt: 2, mb: 1 }}>
                 {activeStep + 1 === 1 ? <Options/> : <Action/>}
               </Typography>

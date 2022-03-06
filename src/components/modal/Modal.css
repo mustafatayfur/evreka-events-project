@@ -9,3 +9,6 @@
     box-shadow: 24px;
     padding: 3%;
 }
+.stepper{
+    display: none;
+}
