@@ -7,21 +7,18 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import './Options.css'
+import { useEventsContext } from '../../context/EventsContext';
 
-function createData(action, title) {
-  return { action, title};
-}
-
-const rows = [
-  createData('Mark this event as resolved and enter the details of the resolution.', 'Mark As Resolved'),
-  createData('Change the asset with another one.', 'Change Asset'),
-];
 
 export default function Options() {
+  const {setNewNumber, rows} = useEventsContext()
+  const handleNumber = (number) => setNewNumber(number);
+  
   return (
     <div>
     {rows.map((row) => (
       <TableContainer 
+        onClick={()=>handleNumber(row.title === 'Mark As Resolved' ? 0:1)}
         component={Paper}  
         key={row.action} className="options-container">  
             <h5>{row.title}</h5>

@@ -8,10 +8,10 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { Stack, Tab, Tabs } from "@mui/material";
-import PropTypes from "prop-types";
 import "./Modal.css";
 import Options from "../options/Options";
-import NextModal from "../nextModal/NextModal";
+import Action from "../action/Action";
+
 
 const steps = ["TAKE ACTION", "SELECT ACTION"];
 
@@ -63,9 +63,9 @@ export default function Modals() {
   // });
   //}
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+  // const handleReset = () => {
+  //   setActiveStep(0);
+  // };
 
   return (
     <div>
@@ -111,13 +111,13 @@ export default function Modals() {
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                 <Box sx={{ flex: "1 1 auto" }} />
-                <Button onClick={()=>handleReset()}>Reset</Button>
+                {/** <Button onClick={()=>handleReset()}>Reset</Button>*/} 
               </Box>
             </React.Fragment>
           ) : (
             <React.Fragment>
               <Typography sx={{ mt: 2, mb: 1 }}>
-                {activeStep + 1 === 1 && <Options/>}
+                {activeStep + 1 === 1 ? <Options/> : <Action/>}
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                 <Button

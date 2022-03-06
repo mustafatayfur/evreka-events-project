@@ -12,8 +12,16 @@ const EventsContextProvider = ({children}) => {
     const {data} = example_response
     const [events, setEvents] = useState(data)
     const [newEvent,setNewEvent] = useState(initialEvent)
+    const [newNumber, setNewNumber] = useState()
     // const [visible, setVisible] = useState(false);
-    console.log(newEvent)
+    
+    function createData(action, title) {
+        return { action, title};
+    }
+    const rows = [
+        createData('Mark this event as resolved and enter the details of the resolution.', 'Mark As Resolved'),
+        createData('Change the asset with another one.', 'Change Asset'),
+    ];
 
     return <EventsContext.Provider 
         value=
@@ -21,7 +29,10 @@ const EventsContextProvider = ({children}) => {
             events, 
             setEvents, 
             newEvent, 
-            setNewEvent,     
+            setNewEvent,
+            newNumber,
+            setNewNumber,
+            rows     
         }}>
             {children}
         </EventsContext.Provider>
