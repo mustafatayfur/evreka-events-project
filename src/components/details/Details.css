@@ -1,0 +1,14 @@
+.details-container{
+    margin-top: 8px;
+}
+.details{
+    background: white;
+    padding: 10px;
+    width: 120%;
+}
+.take-action{
+    flex-basis: 45%;
+}
+/* *{
+    border: 1px solid red;
+} */
