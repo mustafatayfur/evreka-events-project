@@ -12,6 +12,8 @@ import "./Modal.css";
 import Options from "../options/Options";
 import Action from "../action/Action";
 import { useEventsContext } from "../../context/EventsContext";
+import Success from "../success/Success";
+
 
 
 const steps = ["TAKE ACTION", "SELECT ACTION"];
@@ -79,11 +81,11 @@ export default function Modals() {
         aria-labelledby='keep-mounted-modal-title'
         aria-describedby='keep-mounted-modal-description'>
 
-        <Box sx={{ width: "50%" }} className='box-modal'>
+        <Box sx={{ width: "50%", maxWidth: 480 }} className='box-modal'>
           
           {activeStep === steps.length ? (
-            <React.Fragment>
-              {isLoading && <CircularProgress color="success" />}
+            <React.Fragment >
+              {isLoading ? <CircularProgress color="success" className="fragment"/> : <Success/>}
             </React.Fragment>
           ) : (
             <React.Fragment>
