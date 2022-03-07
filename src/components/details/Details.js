@@ -12,6 +12,7 @@ import moment from "moment";
 import "./Details.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Modals from "../modal/Modal";
+import Detail from "../detail/Detail";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,24 +73,27 @@ export default function Details() {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-          {moment(newEvent.details[0].value).format("DD.MM.YYYY hh:mm")}
+          {newEvent.details[0].value === "-" ? "There is no detail!": <Detail newEvent={newEvent} />}
           </TabPanel>
           <TabPanel value={value} index={1}>
-            {<MapContainer center={[`${newEvent.location.latitude}`, `${newEvent.location.longitude}`]} zoom={12}>
+            {newEvent.location.latitude === 0 
+              ? "There is no map information!":
+              (<MapContainer center={[`${newEvent.location.latitude}`, `${newEvent.location.longitude}`]} zoom={12}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={[`${newEvent.location.latitude}`, `${newEvent.location.longitude}`]} >
               <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
+                The location is here <br />
               </Popup>
             </Marker>
-          </MapContainer>}
+          </MapContainer>)
+            }
           </TabPanel>
           <TabPanel value={value} index={2}>
-            {newEvent.media[0].type === 'audio' ? 
-                'audio' : <img src={`${newEvent.media[0].url}`} alt="media" />
+            {newEvent.media[0].type === "" ? "No Media Content" : 'image' ? 
+            <img src={`${newEvent.media[0].url}`} alt="media" /> : "audio"
           }
             
           </TabPanel>

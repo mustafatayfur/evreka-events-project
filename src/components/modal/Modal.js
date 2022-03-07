@@ -100,7 +100,7 @@ export default function Modals() {
                 </Step>
               );
             })}
-          </Stepper>
+            </Stepper>
               <Typography sx={{ mt: 2, mb: 1 }}>
                 {activeStep + 1 === 1 ? <Options/> : <Action/>}
               </Typography>
@@ -118,7 +118,7 @@ export default function Modals() {
               <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
                 Skip
               </Button>
-            )} */}
+              )} */}
 
                 <Button
                   onClick={()=>handleNext()}

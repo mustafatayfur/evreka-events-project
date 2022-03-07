@@ -34,7 +34,6 @@ export default function Row({event}) {
           <TableCell sx={{fontWeight: 600}}>Date</TableCell>
           <TableCell sx={{fontWeight: 600}}>Type</TableCell>
           <TableCell sx={{fontWeight: 600}}>Bin ID</TableCell>
-          <TableCell sx={{fontWeight: 600}}>Temperature-Distance</TableCell>
           <TableCell sx={{fontWeight: 600}}>Action</TableCell>
         </TableRow>
       </TableHead>
@@ -47,7 +46,6 @@ export default function Row({event}) {
             </TableCell>
             <TableCell >{event.type}</TableCell>
             <TableCell >{event.id}</TableCell>
-            <TableCell >{}</TableCell>
             <TableCell >{event.actions[1].title}</TableCell>
           </TableRow>
       </TableBody>

@@ -1,24 +1,24 @@
 let initialEvent = {
     media: [
       {
-        url: 'https://media.evreka.co/1588172618.mp3',
-        type: 'audio',
+        url: '',
+        type: '',
       },
     ],
     actions: [
       {
-        comment: '',
-        task_id: '',
-        title: 'Aksiyon Gerekmiyor',
-        user: '',
-        date: '',
+        comment: '-',
+        task_id: '-',
+        title: '-',
+        user: '-',
+        date: '-',
         action_taken: false,
         action_id: 0,
       },
       {
         comment: '',
         task_id: '',
-        title: 'Çözüm Bildir',
+        title: '-',
         user: '',
         date: '',
         action_taken: false,
@@ -27,13 +27,13 @@ let initialEvent = {
     ],
     extras: {
       new: false,
-      vehicle_id: 156,
-      driver_id: '03085',
+      vehicle_id: 0,
+      driver_id: '-',
     },
     details: [
       {
         format: 'date',
-        value: '2020-04-29T15:03:37.406Z',
+        value: '-',
         title: 'Tarih',
       },
       {
@@ -74,11 +74,11 @@ let initialEvent = {
       },
     ],
     type: 'incident',
-    id: 13408,
+    id: 0,
     location: {
-      latitude: 39.9229025,
+      latitude: 0,
       type: 'single_point',
-      longitude: 32.8419197,
+      longitude:0,
     },
   }
   export default initialEvent
