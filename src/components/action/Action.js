@@ -4,7 +4,7 @@ import React from 'react'
 import { useEventsContext } from '../../context/EventsContext';
 import './Action.css'
 
-const Action = () => {
+const Action = ({getComment}) => {
     const {newNumber, setNewNumber, comment, setComment, rows} = useEventsContext()
 
     const handleNumber = ((number) => {
@@ -13,11 +13,7 @@ const Action = () => {
     const handleChange = (event) => {
     setComment(event.target.value);
     };
-
-    // function maxLengthCheck(object) {
-    //     if (object.value.length > object.maxLength)
-    //     object.value = object.value.slice(0, object.maxLength)
-    //   }
+    console.log(getComment)
 
   return (
     <div>
@@ -43,10 +39,14 @@ const Action = () => {
             <p>
                 {rows[newNumber].action}
             </p>        
-        </TableContainer>)
+          </TableContainer>)
           }
         
-        <div>
+        { !getComment ? 
+            <div>
+            
+            </div> : 
+            <div>
             <label>Resolution Detail*</label>    
             <TextField
               id="outlined-name"
@@ -54,7 +54,7 @@ const Action = () => {
               value={comment}
               onChange={handleChange}
             />
-        </div>
+        </div>}
     </div>
   )
 }

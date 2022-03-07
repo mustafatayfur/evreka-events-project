@@ -7,12 +7,12 @@ import Typography from "@mui/material/Typography";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import { CircularProgress, Stack, Tab, Tabs } from "@mui/material";
+import { CircularProgress, Stack } from "@mui/material";
 import "./Modal.css";
-import Options from "../options/Options";
 import Action from "../action/Action";
 import { useEventsContext } from "../../context/EventsContext";
 import Success from "../success/Success";
+import { IoClose } from 'react-icons/io5'
 
 
 
@@ -22,43 +22,42 @@ export default function Modals() {
   const [open, setOpen] = React.useState(false);
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLoading, setIsLoading] = React.useState(false)
-  const {newNumber, comment, setComment, newEvent} = useEventsContext()
-
+  const [getComment, setGetComment] = React.useState(false)
+  const {setNewNumber,newNumber, comment, setComment, newEvent} = useEventsContext()
+  console.log(getComment)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleNext = () => {
-    if (activeStep === steps.length - 1) {
-      newEvent.actions[1].comment = comment
-      console.log(newEvent.actions[1].comment)     
+    
+    if (newNumber !== undefined ) {
+      if(activeStep !== steps.length - 1){
+        setGetComment(true)
+        
+        
+      }else if(activeStep === steps.length - 1) {
+        // newEvent.actions[1].comment = comment
+        // console.log(newEvent.actions[1].comment)
+        
+      }
+      setIsLoading(true)
+      setTimeout(() => { setIsLoading(false) }, 1500); 
+      setActiveStep((prevActiveStep) => prevActiveStep + 1)
+      
+    }else{
+      alert("Any option is selected. Please select an option!")
     }
-    setIsLoading(true)
-    setTimeout(() => { setIsLoading(false) }, 1500);
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setNewNumber()
+    setGetComment(false)
   };
-
-  // const handleSkip = () => {
-  //   if (!isStepOptional(activeStep)) {
-  //     // You probably want to guard against something like this,
-  //     // it should never occur unless someone's actively trying to break something.
-  //     throw new Error("You can't skip a step that isn't optional.");
-  //   }
-
-  // setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  // setSkipped((prevSkipped) => {
-  //   const newSkipped = new Set(prevSkipped.values());
-  //   newSkipped.add(activeStep);
-  //   return newSkipped;
-  // });
-  //}
-
-  // const handleReset = () => {
-  //   setActiveStep(0);
-  // };
+  function refreshPage(){ 
+    window.location.reload(); 
+}
 
   return (
     <div>
@@ -82,7 +81,7 @@ export default function Modals() {
         aria-describedby='keep-mounted-modal-description'>
 
         <Box sx={{ width: "50%", maxWidth: 480 }} className='box-modal'>
-          
+          <IoClose className="close-icon" onClick={ refreshPage }/>
           {activeStep === steps.length ? (
             <React.Fragment >
               {isLoading ? <CircularProgress color="success" className="fragment"/> : <Success/>}
@@ -102,7 +101,7 @@ export default function Modals() {
             })}
             </Stepper>
               <Typography sx={{ mt: 2, mb: 1 }}>
-                {activeStep + 1 === 1 ? <Options/> : <Action/>}
+                  <Action getComment={getComment}/>
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                 <Button
@@ -114,12 +113,7 @@ export default function Modals() {
                   Back
                 </Button>
                 <Box sx={{ flex: "1 1 auto" }} />
-                {/* {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Skip
-              </Button>
-              )} */}
-
+                
                 <Button
                   onClick={()=>handleNext()}
                   variant='contained'
@@ -134,3 +128,19 @@ export default function Modals() {
     </div>
   );
 }
+
+// if (activeStep !== steps.length - 1) {
+//   if(newNumber !== undefined){
+//     setGetComment(true)
+//     setActiveStep((prevActiveStep) => prevActiveStep + 1)
+//     setIsLoading(true)
+//   setTimeout(() => { setIsLoading(false) }, 1500); 
+//   }else{
+//     alert("Any option is selected. Please select an option!")
+//   }
+// }
+// if (activeStep === steps.length - 1) {
+//   // newEvent.actions[1].comment = comment
+//   // console.log(newEvent.actions[1].comment)
+      
+// }
