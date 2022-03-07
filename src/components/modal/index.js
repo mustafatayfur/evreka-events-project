@@ -7,12 +7,12 @@ import Typography from "@mui/material/Typography";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import { CircularProgress, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import "./style.js";
 import Action from "../action/index";
 import { useEventsContext } from "../../context/EventsContext";
 import Success from "../success/index";
-import { ActionButton, CloseIcon, MyContainer, Spinner, Wrapper } from "./style.js";
+import { ActionButton, CloseIcon, MyContainer, Spinner } from "./style.js";
 
 
 
@@ -24,7 +24,7 @@ export default function Modals() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLoading, setIsLoading] = React.useState(false)
   const [getComment, setGetComment] = React.useState(false)
-  const {setNewNumber,newNumber, comment, newEvent, setNewEvent, events} = useEventsContext()
+  const {setNewNumber,newNumber, comment, newEvent, setNewEvent} = useEventsContext()
  
   const handleOpen =(() => {
     setOpen(true)

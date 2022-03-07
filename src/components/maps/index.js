@@ -3,6 +3,7 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import "./style.js"
 import { ContainerMap } from './style.js'
 
+// eslint-disable-next-line no-use-before-define
 const Maps = ({newEvent={newEvent}}) => {
   return (
     <ContainerMap>
