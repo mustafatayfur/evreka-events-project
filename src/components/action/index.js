@@ -2,7 +2,7 @@
 import Paper from '@mui/material/Paper';
 import React from 'react'
 import { useEventsContext } from '../../context/EventsContext';
-import { CommentArea, ContainerTable, Label, Title, Wrapper } from './style.js';
+import { CommentArea, ContainerTable, Label, Title } from './style.js';
 
 const Action = ({getComment}) => {
     const {newNumber, setNewNumber, comment, setComment, rows} = useEventsContext()
