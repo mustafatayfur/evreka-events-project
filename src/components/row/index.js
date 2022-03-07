@@ -12,7 +12,7 @@ import './style.js'
 import { Wrapper } from './style.js';
 
 export default function Row({event}) {
-  const {setNewEvent, setVisible, visible} = useEventsContext()
+  const {setNewEvent, visible} = useEventsContext()
   const newEvent = () => {
     setNewEvent(event)
   }

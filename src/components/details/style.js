@@ -1,17 +1,22 @@
+import { Card } from "@mui/material";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    .details-container{
-    margin: 8px 8px;
-}
-.details{
+    margin: 0px 25px;
+    @media only screen and (max-width: 380px) {
+        margin-left: 1% ;
+        width:70% ;
+    }
+    @media only screen and (max-width: 780px) {
+        margin-left: 1% ;
+        width:70% ;
+    }
+
+`
+export const CardContainer = styled(Card)`
     background: white;
-    padding: 10px;
+    padding: 10%;
     width: 120%;
-}
-.take-action{
-    flex-basis: 45%;
-}
 `
 
 

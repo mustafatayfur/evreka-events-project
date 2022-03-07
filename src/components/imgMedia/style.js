@@ -1,13 +1,19 @@
 import styled from "styled-components"
 
 export const Wrapper= styled.div`
-    .img-container{
-    /* margin-right: 5px; */
-}
-img{
-    width: 370px;
-    margin: 0px;
-    margin-right: -120px;
-    margin-left: -20px;
+
+    img{
+        width: 380px;
+        margin-right: -100px;
+        margin-left: -20px;
+        @media only screen and (max-width: 380px) {
+            width: 180px;
+            height:280px ;
+            margin-right: 0px;
+            margin-left: -50px;
+        }
+        @media only screen and (max-width: 780px) {
+            width: 580px;
+        }
 }
 `

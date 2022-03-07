@@ -11,13 +11,13 @@ import Modals from "../modal";
 import Detail from "../detail/index";
 import ImgMedia from "../imgMedia";
 import Map from "../maps";
-import { Wrapper } from "./style.js";
+import { CardContainer, Wrapper } from "./style.js";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   
   return (
-    <Wrapper
+    <div
       role='tabpanel'
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -28,7 +28,7 @@ function TabPanel(props) {
           <Typography>{children}</Typography>
         </Box>
       )}
-    </Wrapper>
+    </div>
   );
 }
 
@@ -53,12 +53,12 @@ export default function Details() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  
 
   return (
-    <div className="details-container">
+    <Wrapper>
       <h2>EVENT DETAILS</h2>
-      <Card className='details'>
+      <CardContainer className='details'>
         <Modals/>
         <Box sx={{ width: "100%", marginTop: "5px" }}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -87,7 +87,7 @@ export default function Details() {
             
           </TabPanel>
         </Box>
-      </Card>
-    </div>
+      </CardContainer>
+    </Wrapper>
   );
 }

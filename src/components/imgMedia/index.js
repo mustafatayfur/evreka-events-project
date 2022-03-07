@@ -5,7 +5,7 @@ import { Wrapper } from './style.js'
 const ImgMedia = ({newEvent}) => {
  
   return (
-   <Wrapper className='img-container'>
+   <Wrapper >
       <img src={`${newEvent.media[0].url}`} alt="images" />
    </Wrapper>
   )

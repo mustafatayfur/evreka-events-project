@@ -1,8 +1,8 @@
-import { TableContainer } from '@mui/material'
+
 import Paper from '@mui/material/Paper';
 import React from 'react'
 import { useEventsContext } from '../../context/EventsContext';
-import { Wrapper } from './style.js';
+import { CommentArea, ContainerTable, Label, Title, Wrapper } from './style.js';
 
 const Action = ({getComment}) => {
     const {newNumber, setNewNumber, comment, setComment, rows} = useEventsContext()
@@ -16,12 +16,12 @@ const Action = ({getComment}) => {
     console.log(getComment)
 
   return (
-    <Wrapper>
+    <div>
         
         {newNumber === undefined ?
           (rows.map((row) => (
           
-          <TableContainer 
+          <ContainerTable 
             onClick={()=>handleNumber(row.title === 'Mark As Resolved' ? 0:1)}
             component={Paper}  
             key={row.action} className="action-container">  
@@ -29,36 +29,36 @@ const Action = ({getComment}) => {
                 <p>
                     {row.action}
                 </p>        
-          </TableContainer>) 
+          </ContainerTable>) 
           ))
           :
-          (<TableContainer 
+          (<ContainerTable 
             component={Paper}  
             className="action-container">  
             <h5>{rows[newNumber].title}</h5>
             <p>
                 {rows[newNumber].action}
             </p>        
-          </TableContainer>)
+          </ContainerTable>)
           }
         
         { !getComment ? 
             <div>
             </div> : 
             <div>
-            <label htmlFor="message">
-              <h4>Resolution Detail*</h4>
-            <textarea
+            <Label htmlFor="message" >
+              <Title>Resolution Detail*</Title>
+            <CommentArea
               className='textarea'
               name="message"
               id="message"
               value={comment}
               onChange={handleChange}
-            ></textarea>
+            ></CommentArea>
             <small>Your contact message for us</small>
-          </label>
+          </Label>
             </div>}
-    </Wrapper>
+    </div>
   )
 }
 

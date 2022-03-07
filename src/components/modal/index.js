@@ -11,9 +11,9 @@ import { CircularProgress, Stack } from "@mui/material";
 import "./style.js";
 import Action from "../action/index";
 import { useEventsContext } from "../../context/EventsContext";
-import Success from "../success/Success";
-import { IoClose } from 'react-icons/io5'
-import { Wrapper } from "./style.js";
+import Success from "../success/index";
+import { ActionButton, CloseIcon, MyContainer, Spinner, Wrapper } from "./style.js";
+
 
 
 
@@ -74,18 +74,18 @@ export default function Modals() {
 // }
 
   return (
-    <Wrapper>
+    <div>
       <Stack direction='row' spacing={2}>
-        <Button variant='contained' color='primary'>
+        <ActionButton variant='contained' color='primary'>
           NO ACTION NEEDED
-        </Button>
-        <Button
+        </ActionButton>
+        <ActionButton
           onClick={()=>handleOpen()}
           variant='contained'
           color='success'
-          className='take-action'>
+          >
           TAKE ACTION
-        </Button>
+        </ActionButton>
       </Stack>
       {open && <Modal
         keepMounted
@@ -94,11 +94,11 @@ export default function Modals() {
         aria-labelledby='keep-mounted-modal-title'
         aria-describedby='keep-mounted-modal-description'>
 
-        <Box sx={{ width: "50%", maxWidth: 480 }} className='box-modal'>
-          <IoClose className="close-icon" onClick={ handleClose }/>
+        <MyContainer className='box-modal'>
+          <CloseIcon className="close-icon" onClick={ handleClose }/>
           {activeStep === steps.length && open ? (
             <React.Fragment >
-              {isLoading ? <CircularProgress color="success" className="fragment"/> : <Success/>}
+              {isLoading ? <Spinner color="success" className="fragment"/> : <Success/>}
             </React.Fragment>
           ) : (
             <React.Fragment>
@@ -137,8 +137,8 @@ export default function Modals() {
               </Box>
             </React.Fragment>
           )}
-        </Box>
+        </MyContainer>
       </Modal>}
-    </Wrapper>
+    </div>
   );
 }
