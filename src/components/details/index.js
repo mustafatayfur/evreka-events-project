@@ -5,22 +5,19 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 import Card from '@mui/material/Card';
-import moment from "moment";
-import "./Details.css";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import Modals from "../modal/Modal";
-import Detail from "../detail/Detail";
-import ImgMedia from "../imgMedia/ImgMedia";
-import Map from "../maps/Maps";
+import "./style.js";
+import Modals from "../modal";
+import Detail from "../detail/index";
+import ImgMedia from "../imgMedia";
+import Map from "../maps";
+import { Wrapper } from "./style.js";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   
   return (
-    <div
+    <Wrapper
       role='tabpanel'
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -31,7 +28,7 @@ function TabPanel(props) {
           <Typography>{children}</Typography>
         </Box>
       )}
-    </div>
+    </Wrapper>
   );
 }
 

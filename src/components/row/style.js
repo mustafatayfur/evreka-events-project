@@ -1,4 +1,7 @@
-.table-row{
+import styled from "styled-components";
+
+export const Wrapper = styled.div`
+    .table-row{
     display: flex;
     height: 150px;
 }
@@ -11,4 +14,4 @@
     background: rgb(255, 242, 228);
     border-left: 7px solid rgb(241, 227, 100);
 }
-
+`

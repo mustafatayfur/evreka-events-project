@@ -1,4 +1,7 @@
-.box-modal{
+import styled from "styled-components";
+
+export const Wrapper = styled.div`
+    .box-modal{
     background: white;
     position: absolute;
     top: 50%;
@@ -28,6 +31,4 @@
 .close-icon:hover{
     background: rgb(155, 210, 255);
 }
-/* *{
-    border: 1px solid red;
-} */
+`

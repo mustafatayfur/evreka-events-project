@@ -1,4 +1,7 @@
-.details-container{
+import styled from "styled-components";
+
+export const Wrapper = styled.div`
+    .details-container{
     margin: 8px 8px;
 }
 .details{
@@ -9,6 +12,6 @@
 .take-action{
     flex-basis: 45%;
 }
-/* *{
-    border: 1px solid red;
-} */
+`
+
+

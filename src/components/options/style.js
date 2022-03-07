@@ -1,7 +1,7 @@
-/* *{
-    border: 1px solid red;
-} */
-.options-container{
+import styled from "styled-components";
+
+export const Wrapper = styled.div`
+    .options-container{
     display: flex;
     flex-direction: column;
     margin-top: 5px;
@@ -17,8 +17,5 @@ h5{
 p{
     margin-top: 0px;
 }
-/* .options-table{
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-} */
+`
+

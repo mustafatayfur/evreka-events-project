@@ -1,6 +1,6 @@
 import React from 'react'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import "./Maps.css"
+import "./style.js"
 
 const Maps = ({newEvent={newEvent}}) => {
   return (

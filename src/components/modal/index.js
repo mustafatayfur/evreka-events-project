@@ -8,11 +8,12 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { CircularProgress, Stack } from "@mui/material";
-import "./Modal.css";
+import "./style.js";
 import Action from "../action/index";
 import { useEventsContext } from "../../context/EventsContext";
 import Success from "../success/Success";
 import { IoClose } from 'react-icons/io5'
+import { Wrapper } from "./style.js";
 
 
 
@@ -73,7 +74,7 @@ export default function Modals() {
 // }
 
   return (
-    <div>
+    <Wrapper>
       <Stack direction='row' spacing={2}>
         <Button variant='contained' color='primary'>
           NO ACTION NEEDED
@@ -138,6 +139,6 @@ export default function Modals() {
           )}
         </Box>
       </Modal>}
-    </div>
+    </Wrapper>
   );
 }

@@ -1,7 +1,7 @@
-/* *{
-    border: 1px solid red;
-} */
-.img-container{
+import styled from "styled-components"
+
+export const Wrapper= styled.div`
+    .img-container{
     /* margin-right: 5px; */
 }
 img{
@@ -10,3 +10,4 @@ img{
     margin-right: -120px;
     margin-left: -20px;
 }
+`

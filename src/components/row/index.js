@@ -8,7 +8,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import moment from "moment";
-import './Row.css'
+import './style.js'
+import { Wrapper } from './style.js';
 
 export default function Row({event}) {
   const {setNewEvent, setVisible, visible} = useEventsContext()
@@ -17,7 +18,7 @@ export default function Row({event}) {
   }
   
   return (
-    <div className='table-row'>
+    <Wrapper className='table-row'>
     <TableContainer  
       component={Paper} 
       sx={{m:1}} 
@@ -51,6 +52,6 @@ export default function Row({event}) {
       </TableBody>
      </Table>
     </TableContainer>
-    </div>
+    </Wrapper>
   );
 }

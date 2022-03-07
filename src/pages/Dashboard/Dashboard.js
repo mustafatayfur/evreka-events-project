@@ -1,7 +1,7 @@
 import { useEventsContext } from '../../context/EventsContext';
 import './Dashboard.css';
-import Row from '../../components/row/Row';
-import Details from '../../components/details/Details';
+import Row from '../../components/row';
+import Details from '../../components/details/index';
 
 function Dashboard() {
   const {events, newNumber} = useEventsContext()

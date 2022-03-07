@@ -2,7 +2,7 @@ import { TableContainer } from '@mui/material'
 import Paper from '@mui/material/Paper';
 import React from 'react'
 import { useEventsContext } from '../../context/EventsContext';
-import { Wrapper } from './Actionnnn.js';
+import { Wrapper } from './style.js';
 
 const Action = ({getComment}) => {
     const {newNumber, setNewNumber, comment, setComment, rows} = useEventsContext()

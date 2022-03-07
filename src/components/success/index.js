@@ -1,10 +1,10 @@
 import React from 'react'
 import { GiConfirmed } from "react-icons/gi"
-import './Success.css'
+import { Wrapper } from './style'
 
 const Success = () => {
   return (
-    <div >
+    <Wrapper >
         <div className='success-container'>
             <GiConfirmed className='confirm-icon'/>
             <h3>ACTION HAS BEEN TAKEN!</h3>
@@ -13,7 +13,7 @@ const Success = () => {
         <div>
 
         </div>
-    </div>
+    </Wrapper>
   )
 }
 

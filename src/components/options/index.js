@@ -3,6 +3,7 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import './Options.css'
 import { useEventsContext } from '../../context/EventsContext';
+import { Wrapper } from './style';
 
 
 export default function Options() {
@@ -13,7 +14,7 @@ export default function Options() {
   });
   
   return (
-    <div>
+    <Wrapper>
     {rows.map((row) => (
       <TableContainer 
         onClick={()=>handleNumber(row.title === 'Mark As Resolved' ? 0:1)}
@@ -25,6 +26,6 @@ export default function Options() {
             </p>        
       </TableContainer>
       ))}
-    </div>
+    </Wrapper>
   );
 }

@@ -1,4 +1,7 @@
-.success-container{
+import styled from "styled-components";
+
+export const Wrapper = styled.div`
+        .success-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,3 +12,4 @@
     color: green;
     font-size: xx-large;
 }
+`
