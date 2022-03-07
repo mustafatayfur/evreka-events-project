@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
         margin-left: 1% ;
         width:70% ;
     }
-
 `
 export const CardContainer = styled(Card)`
     background: white;

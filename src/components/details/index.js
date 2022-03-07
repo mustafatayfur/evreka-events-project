@@ -5,7 +5,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Card from '@mui/material/Card';
 import "./style.js";
 import Modals from "../modal";
 import Detail from "../detail/index";
