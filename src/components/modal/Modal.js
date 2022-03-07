@@ -23,7 +23,7 @@ export default function Modals() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLoading, setIsLoading] = React.useState(false)
   const [getComment, setGetComment] = React.useState(false)
-  const {setNewNumber,newNumber, comment, setComment, newEvent} = useEventsContext()
+  const {setNewNumber,newNumber, comment, newEvent, setNewEvent, events} = useEventsContext()
   console.log(getComment)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -36,8 +36,16 @@ export default function Modals() {
         
         
       }else if(activeStep === steps.length - 1) {
-        // newEvent.actions[1].comment = comment
-        // console.log(newEvent.actions[1].comment)
+        newEvent.actions[1].comment = comment
+        newEvent.actions[1].title = "-"
+        console.log(newEvent.actions[1].title)
+        console.log(newEvent)
+        setNewEvent((events) => ({
+          ...events,
+          newEvent
+        }))
+        console.log(newEvent.actions[1].title)
+        
         
       }
       setIsLoading(true)
@@ -55,9 +63,9 @@ export default function Modals() {
     setNewNumber()
     setGetComment(false)
   };
-  function refreshPage(){ 
-    window.location.reload(); 
-}
+//   function refreshPage(){ 
+//     window.location.reload(); 
+// }
 
   return (
     <div>
@@ -81,7 +89,7 @@ export default function Modals() {
         aria-describedby='keep-mounted-modal-description'>
 
         <Box sx={{ width: "50%", maxWidth: 480 }} className='box-modal'>
-          <IoClose className="close-icon" onClick={ refreshPage }/>
+          <IoClose className="close-icon" onClick={ handleClose }/>
           {activeStep === steps.length ? (
             <React.Fragment >
               {isLoading ? <CircularProgress color="success" className="fragment"/> : <Success/>}
@@ -128,19 +136,3 @@ export default function Modals() {
     </div>
   );
 }
-
-// if (activeStep !== steps.length - 1) {
-//   if(newNumber !== undefined){
-//     setGetComment(true)
-//     setActiveStep((prevActiveStep) => prevActiveStep + 1)
-//     setIsLoading(true)
-//   setTimeout(() => { setIsLoading(false) }, 1500); 
-//   }else{
-//     alert("Any option is selected. Please select an option!")
-//   }
-// }
-// if (activeStep === steps.length - 1) {
-//   // newEvent.actions[1].comment = comment
-//   // console.log(newEvent.actions[1].comment)
-      
-// }

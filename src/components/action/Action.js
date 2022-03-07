@@ -25,7 +25,7 @@ const Action = ({getComment}) => {
             onClick={()=>handleNumber(row.title === 'Mark As Resolved' ? 0:1)}
             component={Paper}  
             key={row.action} className="options-container">  
-                <h5>{row.title }</h5>
+                <h5>{row.title}</h5>
                 <p>
                     {row.action}
                 </p>        

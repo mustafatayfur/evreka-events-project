@@ -15,8 +15,19 @@ const EventsContextProvider = ({children}) => {
     const [newNumber, setNewNumber] = useState()
     const [comment, setComment] = useState('');
 
-    console.log(newEvent.actions[1])
+    console.log(events)
     // const [visible, setVisible] = useState(false);
+
+
+    useEffect(() => {
+		localStorage.setItem('localData', JSON.stringify(data));
+        
+	}, []);
+    useEffect(() => {
+		
+        const newData = JSON.parse(localStorage.getItem('localData'))
+        setEvents(newData)
+	}, []);
 
     function createData(action, title) {
         return { action, title};
