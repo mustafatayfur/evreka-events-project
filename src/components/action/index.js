@@ -1,8 +1,8 @@
-import { TableContainer, TextField } from '@mui/material'
+import { TableContainer } from '@mui/material'
 import Paper from '@mui/material/Paper';
 import React from 'react'
 import { useEventsContext } from '../../context/EventsContext';
-import './Action.css'
+import { Wrapper } from './Actionnnn.js';
 
 const Action = ({getComment}) => {
     const {newNumber, setNewNumber, comment, setComment, rows} = useEventsContext()
@@ -16,7 +16,7 @@ const Action = ({getComment}) => {
     console.log(getComment)
 
   return (
-    <div>
+    <Wrapper>
         
         {newNumber === undefined ?
           (rows.map((row) => (
@@ -24,7 +24,7 @@ const Action = ({getComment}) => {
           <TableContainer 
             onClick={()=>handleNumber(row.title === 'Mark As Resolved' ? 0:1)}
             component={Paper}  
-            key={row.action} className="options-container">  
+            key={row.action} className="action-container">  
                 <h5>{row.title}</h5>
                 <p>
                     {row.action}
@@ -44,42 +44,23 @@ const Action = ({getComment}) => {
         
         { !getComment ? 
             <div>
-            
             </div> : 
             <div>
-            <label>Resolution Detail*</label>    
-            <TextField
-              id="outlined-name"
-              label="Resolution Detail*"
+            <label htmlFor="message">
+              <h4>Resolution Detail*</h4>
+            <textarea
+              className='textarea'
+              name="message"
+              id="message"
               value={comment}
               onChange={handleChange}
-            />
-        </div>}
-    </div>
+            ></textarea>
+            <small>Your contact message for us</small>
+          </label>
+            </div>}
+    </Wrapper>
   )
 }
 
 export default Action
 
-         
-// {rows.map((row) => (
-//   newNumber === undefined ?
-//   (<TableContainer 
-//     onClick={()=>handleNumber(row.title === 'Mark As Resolved' ? 0:1)}
-//     component={Paper}  
-//     key={row.action} className="options-container">  
-//         <h5>{row.title }</h5>
-//         <p>
-//             {row.action}
-//         </p>        
-//   </TableContainer>) 
-//   :
-//   (<TableContainer 
-//     component={Paper}  
-//     className="action-container">  
-//     <h5>{rows[newNumber].title}</h5>
-//     <p>
-//         {rows[newNumber].action}
-//     </p>        
-// </TableContainer>)
-// ))}

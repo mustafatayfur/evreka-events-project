@@ -9,7 +9,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { CircularProgress, Stack } from "@mui/material";
 import "./Modal.css";
-import Action from "../action/Action";
+import Action from "../action/index";
 import { useEventsContext } from "../../context/EventsContext";
 import Success from "../success/Success";
 import { IoClose } from 'react-icons/io5'
