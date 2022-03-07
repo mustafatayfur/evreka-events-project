@@ -12,7 +12,7 @@ const EventsContextProvider = ({children}) => {
     const {data} = example_response
     const [events, setEvents] = useState(data)
     const [newEvent,setNewEvent] = useState(initialEvent)
-    const [newNumber, setNewNumber] = useState(0)
+    const [newNumber, setNewNumber] = useState()
     const [comment, setComment] = useState('');
 
     console.log(newEvent.actions[1])
