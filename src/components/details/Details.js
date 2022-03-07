@@ -14,6 +14,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Modals from "../modal/Modal";
 import Detail from "../detail/Detail";
 import ImgMedia from "../imgMedia/ImgMedia";
+import Map from "../maps/Maps";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -79,17 +80,7 @@ export default function Details() {
           <TabPanel value={value} index={1}>
             {newEvent.location.latitude === 0 
               ? "There is no map information!":
-              (<MapContainer center={[`${newEvent.location.latitude}`, `${newEvent.location.longitude}`]} zoom={12}>
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[`${newEvent.location.latitude}`, `${newEvent.location.longitude}`]} >
-              <Popup>
-                The location is here <br />
-              </Popup>
-            </Marker>
-          </MapContainer>)
+              <Map newEvent={newEvent}/>
             }
           </TabPanel>
           <TabPanel value={value} index={2}>

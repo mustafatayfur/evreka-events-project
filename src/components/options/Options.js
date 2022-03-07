@@ -12,7 +12,10 @@ import { useEventsContext } from '../../context/EventsContext';
 
 export default function Options() {
   const {setNewNumber, rows} = useEventsContext()
-  const handleNumber = (number) => setNewNumber(number);
+  const handleNumber = ((number) => {
+    setNewNumber(number)
+    
+  });
   
   return (
     <div>

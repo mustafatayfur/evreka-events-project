@@ -1,0 +1,12 @@
+/* *{
+    border: 1px solid red;
+} */
+.img-container{
+    /* margin-right: 5px; */
+}
+img{
+    width: 370px;
+    margin: 0px;
+    margin-right: -120px;
+    margin-left: -20px;
+}

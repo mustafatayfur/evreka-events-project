@@ -211,9 +211,9 @@ let example_response = {
         type: 'incident',
         id: 13408,
         location: {
-          latitude: 39.9229025,
+          latitude: 39.9429025,
           type: 'single_point',
-          longitude: 32.8419197,
+          longitude: 32.8719197,
         },
       },
       {
@@ -294,9 +294,9 @@ let example_response = {
         type: 'incident',
         id: 13407,
         location: {
-          latitude: 39.9229357,
+          latitude: 39.9329357,
           type: 'single_point',
-          longitude: 32.8419088,
+          longitude: 32.8319088,
         },
       },
       {
