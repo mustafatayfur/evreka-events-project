@@ -14,9 +14,6 @@ import { useEventsContext } from "../../context/EventsContext";
 import Success from "../success/index";
 import { ActionButton, CloseIcon, MyContainer, Spinner } from "./style.js";
 
-
-
-
 const steps = ["TAKE ACTION", "SELECT ACTION"];
 
 export default function Modals() {
@@ -69,9 +66,6 @@ export default function Modals() {
     setNewNumber()
     setGetComment(false)
   };
-//   function refreshPage(){ 
-//     window.location.reload(); 
-// }
 
   return (
     <div>
