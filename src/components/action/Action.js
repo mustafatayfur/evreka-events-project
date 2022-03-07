@@ -1,4 +1,4 @@
-import { TableContainer, TextareaAutosize, TextField } from '@mui/material'
+import { TableContainer, TextField } from '@mui/material'
 import Paper from '@mui/material/Paper';
 import React from 'react'
 import { useEventsContext } from '../../context/EventsContext';

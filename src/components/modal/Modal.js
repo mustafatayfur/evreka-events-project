@@ -24,16 +24,21 @@ export default function Modals() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [getComment, setGetComment] = React.useState(false)
   const {setNewNumber,newNumber, comment, newEvent, setNewEvent, events} = useEventsContext()
-  console.log(getComment)
-  const handleOpen = () => setOpen(true);
+ 
+  const handleOpen =(() => {
+    setOpen(true)
+    setActiveStep(0)
+    setGetComment(false)
+    setNewNumber()
+  })
   const handleClose = () => setOpen(false);
 
   const handleNext = () => {
     
     if (newNumber !== undefined ) {
+      
       if(activeStep !== steps.length - 1){
         setGetComment(true)
-        
         
       }else if(activeStep === steps.length - 1) {
         newEvent.actions[1].comment = comment
@@ -46,11 +51,11 @@ export default function Modals() {
         }))
         console.log(newEvent.actions[1].title)
         
-        
       }
       setIsLoading(true)
       setTimeout(() => { setIsLoading(false) }, 1500); 
       setActiveStep((prevActiveStep) => prevActiveStep + 1)
+      
       
     }else{
       alert("Any option is selected. Please select an option!")
@@ -81,7 +86,7 @@ export default function Modals() {
           TAKE ACTION
         </Button>
       </Stack>
-      <Modal
+      {open && <Modal
         keepMounted
         open={open}
         onClose={()=>handleClose()}
@@ -90,7 +95,7 @@ export default function Modals() {
 
         <Box sx={{ width: "50%", maxWidth: 480 }} className='box-modal'>
           <IoClose className="close-icon" onClick={ handleClose }/>
-          {activeStep === steps.length ? (
+          {activeStep === steps.length && open ? (
             <React.Fragment >
               {isLoading ? <CircularProgress color="success" className="fragment"/> : <Success/>}
             </React.Fragment>
@@ -109,7 +114,7 @@ export default function Modals() {
             })}
             </Stepper>
               <Typography sx={{ mt: 2, mb: 1 }}>
-                  <Action getComment={getComment}/>
+                <Action getComment={getComment}/>
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                 <Button
@@ -132,7 +137,7 @@ export default function Modals() {
             </React.Fragment>
           )}
         </Box>
-      </Modal>
+      </Modal>}
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Row from '../../components/row/Row';
 import Details from '../../components/details/Details';
 
 function Dashboard() {
-  const {events} = useEventsContext()
+  const {events, newNumber} = useEventsContext()
   console.log(events)
   return (
     <div className="dashboard">
