@@ -53,8 +53,8 @@ let example_response = {
       {
         media: [
           {
-            url: 'https://media.evreka.co/1588172625.mp3',
-            type: 'audio',
+            url: 'https://medyailanlari.com/wp-content/uploads/2020/10/f6442ccf47cf6da81773067381a5f07d.jpg',
+            type: 'image',
           },
         ],
         actions: [
@@ -204,7 +204,7 @@ let example_response = {
           },
           {
             format: 'string',
-            value: 'İmren KARALAR',
+            value: 'Mehmet PANCAROĞLU',
             title: 'Şoför',
           },
         ],
@@ -282,7 +282,7 @@ let example_response = {
           },
           {
             format: 'vehicle',
-            value: '06 ADN 61',
+            value: '06 TYF 334',
             title: 'Araç',
           },
           {

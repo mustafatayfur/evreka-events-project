@@ -13,6 +13,7 @@ import "./Details.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Modals from "../modal/Modal";
 import Detail from "../detail/Detail";
+import ImgMedia from "../imgMedia/ImgMedia";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -93,7 +94,7 @@ export default function Details() {
           </TabPanel>
           <TabPanel value={value} index={2}>
             {newEvent.media[0].type === "" ? "No Media Content" : 'image' ? 
-            <img src={`${newEvent.media[0].url}`} alt="media" /> : "audio"
+            <ImgMedia  newEvent={newEvent}/> : "audio"
           }
             
           </TabPanel>
