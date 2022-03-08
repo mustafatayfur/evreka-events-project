@@ -55,7 +55,6 @@ const Action = ({getComment}) => {
               value={comment}
               onChange={handleChange}
             ></CommentArea>
-            <small>Your contact message for us</small>
           </Label>
             </div>}
     </div>
